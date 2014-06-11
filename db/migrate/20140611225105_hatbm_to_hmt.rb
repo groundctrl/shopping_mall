@@ -12,6 +12,7 @@ class HatbmToHmt < ActiveRecord::Migration
       :spree_option_values_variants,
       :spree_orders_promotions,
       :spree_products_promotion_rules,
+      :spree_products_promotion_rules_users,
       :spree_properties_prototypes,
       :spree_roles_users,
       :spree_shipping_methods_zones
