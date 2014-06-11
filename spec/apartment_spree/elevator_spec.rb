@@ -37,7 +37,7 @@ describe ApartmentSpree::Elevators::Subdomain do
       it 'does not receive .process_request' do
         elevator = ApartmentSpree::Elevators::Subdomain.new(app)
         expect(elevator).to_not receive(:process_request)
-        elevator.call Rack::MockRequest.env_for("http://example.com")
+        elevator.call Rack::MockRequest.env_for('http://example.com')
       end
     end
   end
