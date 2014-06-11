@@ -26,6 +26,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
   config.use_transactional_fixtures = false
+  config.expose_current_running_example_as :example
+  config.infer_spec_type_from_file_location!
+  config.deprecation_stream = 'rspec.log'
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
