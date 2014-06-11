@@ -1,6 +1,6 @@
 # ApartmentSpree
 
-TODO: Write a gem description
+Multi-tenancy for Spree 2.3+ using Apartment!
 
 ## Installation
 
@@ -16,9 +16,15 @@ Or install it yourself as:
 
     $ gem install apartment_spree
 
-## Usage
+## Testing
 
-TODO: Write usage instructions here
+Generate a dummy application
+
+    bundle exec rake test_app
+
+Running tests
+
+    bundle exec rake spec
 
 ## Contributing
 
