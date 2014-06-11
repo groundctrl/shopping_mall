@@ -17,6 +17,7 @@ spec/dummy
 test/tmp
 test/version_tmp
 tmp
+db/*
 *.bundle
 *.so
 *.o
