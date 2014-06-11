@@ -19,7 +19,6 @@ Gem::Specification.new do |spec|
   spec.has_rdoc     = false
   spec.requirements  << 'none'
 
-
   spec.add_dependency 'spree_core', '~> 2.3.0.beta'
   spec.add_dependency 'apartment', '>= 0.24.0'
   spec.add_development_dependency 'ffaker'
@@ -34,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sass-rails', '~> 4.0.0'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'debugger'
 end
