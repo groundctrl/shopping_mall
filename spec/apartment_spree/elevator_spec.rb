@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe ApartmentSpree::Elevators::Subdomain do
   before do
-    Apartment::Database.drop('tenant_name') rescue "We don't care if this fails"
-    Apartment::Database.create('tenant_name')
+    Apartment::Database.create('tenant_name') rescue 'So what'
   end
 
   context 'schema switching' do
@@ -25,6 +24,7 @@ describe ApartmentSpree::Elevators::Subdomain do
       end
 
       it 'on match Apartment assigns the requests tenant' do
+        expect(Apartment::Database).to receive(:switch).with('tenant_name')
         expect(app).to receive(:call)
         ApartmentSpree::Elevators::Subdomain.new(app).call(
           env_domain('tenant-name')

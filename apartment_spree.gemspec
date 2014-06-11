@@ -33,5 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sass-rails', '~> 4.0.0'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pg', '>= 0.11.0'
   spec.add_development_dependency 'debugger'
+  spec.add_development_dependency 'shoulda-matchers'
 end

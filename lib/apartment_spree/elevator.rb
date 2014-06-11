@@ -41,10 +41,7 @@ module ApartmentSpree
 
       def fail_tenant_with(ex)
         cache_id
-        Apartment::Database.switch nil
-        ActiveRecord::Base.establish_connection
         Rails.logger.error " Request failed with: #{ex.message}"
-
         process_failure
       end
 
