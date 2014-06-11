@@ -12,14 +12,16 @@ Gem::Specification.new do |spec|
   spec.description   = spec.summary
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.homepage      = "http://groundctrl.com"
-
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.test_files    = spec.files.grep(%r{^features/})
-  spec.require_paths = "lib"
+  spec.homepage     = "http://groundctrl.com"
+  spec.files        = `git ls-files`.split("\n")
+  spec.test_files   = `git ls-files -- spec/*`.split("\n")
+  spec.require_path = 'lib'
+  spec.has_rdoc     = false
   spec.requirements  << 'none'
 
+
   spec.add_dependency 'spree_core', '~> 2.3.0.beta'
+  spec.add_dependency 'apartment', '>= 0.24.0'
   spec.add_development_dependency 'ffaker'
   spec.add_development_dependency 'capybara', '~> 2.2.1'
   spec.add_development_dependency 'database_cleaner', '1.2.0'

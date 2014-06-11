@@ -2,7 +2,7 @@ module ApartmentSpree
   class Engine < Rails::Engine
     engine_name 'apartment_spree'
 
-    config.autoload_paths += %W[#{config.root}/lib]
+    config.autoload_paths += Dir["#{config.root}/lib"]
     config.generators { |gen| gen.test_framework :rspec }
 
     def self.activate

@@ -28,7 +28,7 @@ module ApartmentSpree
         tenant_schema = current_tenant.gsub! '-', '_'
         Apartment::Database.switch tenant_schema
         Rails.logger.error " Using db #{tenant_schema}"
-        set_cache_id tenant_schema
+        cache_id tenant_schema
 
         app.call env
       end
@@ -41,7 +41,7 @@ module ApartmentSpree
 
       def failed_tenant_with(ex)
         Rails.logger.error " Request failed with: #{ex.message}"
-        set_cache_id
+        cache_id
         Apartment::Database.switch nil
         ActionRecord::Base.establish_connection
 
@@ -53,10 +53,10 @@ module ApartmentSpree
       end
 
       def process_failure
-        [200, {'Content-type' => 'text/html'}, ['Ahh No.']]
+        [200, { 'Content-type' => 'text/html' }, ['Ahh No.']]
       end
 
-      def set_cache_id(id = '')
+      def cache_id(id = '')
         ENV['RAILS_CACHE_ID'] = id
       end
     end
