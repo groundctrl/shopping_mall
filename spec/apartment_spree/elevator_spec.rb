@@ -12,20 +12,19 @@ describe ApartmentSpree::Elevators::Subdomain do
     context 'with subdomain' do
       let(:subdomain) { 'this-is-a-sub' }
 
-      it 'Apartment::Database receives the correctly parsed tenant_schema' do
+      it 'Apartment receives correct tenant_schema' do
         expect(Apartment::Database).to receive(:switch)
           .with(subdomain.gsub('-','_'))
 
         ApartmentSpree::Elevators::Subdomain.new(app).call env_domain(subdomain)
       end
 
-      it 'Apartment::Database is set to nil after a failed schema switch' do
+      it 'app does not receive .call on a failed switch' do
         expect(app).to_not receive(:call)
         ApartmentSpree::Elevators::Subdomain.new(app).call env_domain(subdomain)
       end
 
-      it 'assigns the requests tenant' do
-        expect(Apartment::Database).to receive(:switch).with('tenant_name')
+      it 'on match Apartment assigns the requests tenant' do
         expect(app).to receive(:call)
         ApartmentSpree::Elevators::Subdomain.new(app).call(
           env_domain('tenant-name')

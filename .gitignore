@@ -17,7 +17,7 @@ spec/dummy
 test/tmp
 test/version_tmp
 tmp
-db/*
+db/*.sqlite3
 *.bundle
 *.so
 *.o
