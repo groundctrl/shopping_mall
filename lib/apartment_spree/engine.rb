@@ -13,10 +13,6 @@ module ApartmentSpree
       end
     end
 
-    config.generators do |gen|
-      gen.test_framework :rspec
-    end
-
     config.to_prepare &method(:activate).to_proc
   end
 end
