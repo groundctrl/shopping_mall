@@ -5,8 +5,8 @@ describe Spree::Property do
 
   context 'has_many through' do
     it 'assigns correctly' do
-      property = FactoryGirl.create :property
-      property.prototypes << FactoryGirl.create(:prototype)
+      property = create :property
+      property.prototypes << create(:prototype)
 
       expect(property.prototypes.size).to eq 1
     end
@@ -14,8 +14,8 @@ describe Spree::Property do
 
   context '#find_all_by_prototype' do
     it 'returns all found properties' do
-      properties ||= (1..5).map { FactoryGirl.create(:property) }
-      prototype = FactoryGirl.create :prototype, properties: properties
+      properties ||= (1..5).map { create(:property) }
+      prototype = create :prototype, properties: properties
 
       expect(Spree::Property.find_all_by_prototype(prototype)).to eq properties
     end
