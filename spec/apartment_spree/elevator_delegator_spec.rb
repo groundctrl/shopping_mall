@@ -21,4 +21,11 @@ describe ApartmentSpree::ElevatorDelegator do
       test.call env
     end
   end
+
+  after do
+    ApartmentSpree.configure do |config|
+      config.elevator = 'Subdomain'
+      config.excluded_models = ApartmentSpree::DEFAULT_SPREE_EXCLUSIONS
+    end
+  end
 end

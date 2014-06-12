@@ -32,4 +32,11 @@ describe ApartmentSpree do
       expect(ApartmentSpree.elevator).to eq 'Domain'
     end
   end
+
+  after do
+    ApartmentSpree.configure do |config|
+      config.elevator = 'Subdomain'
+      config.excluded_models = ApartmentSpree::DEFAULT_SPREE_EXCLUSIONS
+    end
+  end
 end
