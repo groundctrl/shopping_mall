@@ -7,8 +7,8 @@
 # config.setting_name = 'new value'
 Spree.config do |config|
   # Example:
-  # Uncomment to stop tracking inventory levels in the application
-  # config.track_inventory_levels = false
+  # Uncomment to override the default site name.
+  # config.site_name = "Spree Demo Site"
 end
 
 Spree.user_class = "Spree::User"

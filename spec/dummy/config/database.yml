@@ -1,15 +1,21 @@
+
+
 development:
-  adapter: sqlite3
-  database: db/spree_development.sqlite3
+  adapter: postgresql
+  database: apartment_spree_spree_development
+  username: postgres
+  min_messages: warning
+
 test:
-  adapter:  postgresql
-  encoding: unicode
-  database: apartment_spree_test
-  pool:     40
-  username: vincentfranco
-  password:
-  host:     localhost
+  adapter: postgresql
+  database: apartment_spree_spree_test
+  username: postgres
+  min_messages: warning
+
 production:
-  adapter: sqlite3
-  database: db/spree_production.sqlite3
+  adapter: postgresql
+  database: apartment_spree_spree_production
+  username: postgres
+  min_messages: warning
+
 
