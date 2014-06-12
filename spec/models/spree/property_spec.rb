@@ -7,6 +7,7 @@ describe Spree::Property do
     it 'assigns correctly' do
       property = FactoryGirl.create :property
       property.prototypes << FactoryGirl.create(:prototype)
+
       expect(property.prototypes.size).to eq 1
     end
   end
