@@ -1,11 +1,8 @@
 require 'spree_core'
 require 'apartment'
-require 'apartment/elevators/domain'
-require 'apartment/elevators/first_subdomain'
-require 'apartment/elevators/subdomain'
 require 'apartment_spree/version'
 require 'apartment_spree/engine'
-require 'apartment_spree/elevator_delegator'
+require 'apartment_spree/elevator'
 
 module ApartmentSpree
 
@@ -41,10 +38,5 @@ module ApartmentSpree
   end
 
   def self.elevator=(elevator)
-    @elevator = elevator
-  end
-
-  def self.elevator_class
-    "Apartment::Elevators::#{elevator}".constantize
   end
 end

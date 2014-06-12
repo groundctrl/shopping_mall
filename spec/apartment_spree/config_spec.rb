@@ -18,5 +18,18 @@ describe ApartmentSpree do
       ApartmentSpree.configure { |config| config.excluded_models = [] }
       expect(Apartment.excluded_models).to_not include 'Spree::User'
     end
+
+    it 'has a default elevator' do
+      expect(ApartmentSpree.elevator).to eq 'Subdomain'
+    end
+
+    it '#elevator_class returns a Apartment::Elevators::Elevator' do
+      expect(ApartmentSpree.elevator_class).to eq Apartment::Elevators::Subdomain
+    end
+
+    it 'accepts elevator on config' do
+      ApartmentSpree.configure { |config| config.elevator = 'Domain' }
+      expect(ApartmentSpree.elevator).to eq 'Domain'
+    end
   end
 end
