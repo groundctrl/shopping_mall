@@ -28,7 +28,7 @@ Running tests
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/apartment_spree/fork )
+1. Fork it ( https://github.com/groundctrl/apartment_spree/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
