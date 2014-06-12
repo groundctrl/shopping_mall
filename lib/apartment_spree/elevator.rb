@@ -1,11 +1,11 @@
 module ApartmentSpree
   class Elevators
     class Subdomain
-      attr_reader :app, :env, :fail_app
+      attr_reader :env, :failure, :success
 
       def initialize(app)
-        @app = app
-        @fail_app = ->(env) do
+        @success = app
+        @failure = ->(env) do
           [200, { 'Content-type' => 'text/html' }, ['No tenant.']]
         end
       end
@@ -42,17 +42,16 @@ module ApartmentSpree
       end
 
       def fail_tenant_with(ex)
-        cache_id
-        Rails.logger.error "Request failed with: #{ex.message}"
+        cache_id && Rails.logger.error("Request failed with: #{ex.message}")
         process_failure
       end
 
       def process_success
-        app.call env
+        success.call env
       end
 
       def process_failure
-        fail_app.call env
+        failure.call env
       end
 
       def cache_id(id = '')

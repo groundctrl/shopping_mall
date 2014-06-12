@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe ApartmentSpree::Elevators::Subdomain do
-  before do
-    Apartment::Database.create('tenant_name') rescue 'So what'
-  end
+  before { Apartment::Database.create('tenant_name') rescue 'So what' }
 
   context 'schema switching' do
     let(:app) { double 'app', call: true }
