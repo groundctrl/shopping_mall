@@ -11,7 +11,7 @@ describe ApartmentSpree::Elevators::Subdomain do
 
       it 'Apartment receives correct tenant_schema' do
         expect(Apartment::Database).to receive(:switch)
-          .with(subdomain.gsub('-','_'))
+          .with(subdomain.gsub('-', '_'))
 
         ApartmentSpree::Elevators::Subdomain.new(app).call env_domain(subdomain)
       end
