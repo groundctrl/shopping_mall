@@ -9,4 +9,6 @@ describe Spree::User do
   it 'is on default_schema' do
     expect(Spree::User.table_name).to eq 'public.spree_users'
   end
+
+  it { should have_many(:roles).through(:roles_users) }
 end
