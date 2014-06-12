@@ -1,10 +1,13 @@
 module ApartmentSpree
   class Elevators
     class Subdomain
-      attr_reader :app, :env
+      attr_reader :app, :env, :fail_app
 
       def initialize(app)
         @app = app
+        @fail_app = ->(env) do
+          [200, { 'Content-type' => 'text/html' }, ['No tenant.']]
+        end
       end
 
       def call(env)
@@ -24,29 +27,32 @@ module ApartmentSpree
         @tenant ||= tenant_subdomain
       end
 
+      def tenant_schema_name
+        @schema_name ||= current_tenant_subdomain.gsub('-', '_')
+      end
+
       def tenant_subdomain
-        request = ActionDispatch::Request.new env
-        Rails.logger.warn "Requested URL: #{request.url}"
-        request.subdomain.to_s.split('.').first
+        ActionDispatch::Request.new(env).subdomain.to_s.split('.').first
       end
 
       def switch_tenant_schema
-        tenant_schema = current_tenant_subdomain.gsub '-', '_'
-        cache_id tenant_schema
-        Apartment::Database.switch tenant_schema
-        Rails.logger.warn "Using db #{tenant_schema}"
-
-        app.call env
+        cache_id tenant_schema_name
+        Apartment::Database.switch tenant_schema_name
+        process_success
       end
 
       def fail_tenant_with(ex)
         cache_id
-        Rails.logger.error " Request failed with: #{ex.message}"
+        Rails.logger.error "Request failed with: #{ex.message}"
         process_failure
       end
 
+      def process_success
+        app.call env
+      end
+
       def process_failure
-        [200, { 'Content-type' => 'text/html' }, ['Ahh No.']]
+        fail_app.call env
       end
 
       def cache_id(id = '')
