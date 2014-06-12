@@ -4,7 +4,7 @@ describe 'Dynamic model exlusions' do
   context 'configuration' do
     it 'properly excludes gem excluded models' do
       Apartment.excluded_models.each do |klass|
-        base_name = klass.underscore.gsub('/', '_').pluralize
+        base_name = klass.tableize.gsub('/', '_')
         expect(klass.constantize.table_name).to eq "public.#{base_name}"
       end
     end
