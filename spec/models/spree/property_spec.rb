@@ -13,8 +13,10 @@ describe Spree::Property do
 
   context '#find_all_by_prototype' do
     it 'returns all found properties' do
-      prototype = FactoryGirl.create :prototype
-      expect(Spree::Property.find_all_by_prototype(prototype)).to eq [prototype]
+      properties ||= (1..5).map { FactoryGirl.create(:property) }
+      prototype = FactoryGirl.create :prototype, properties: properties
+
+      expect(Spree::Property.find_all_by_prototype(prototype)).to eq properties
     end
   end
 end
