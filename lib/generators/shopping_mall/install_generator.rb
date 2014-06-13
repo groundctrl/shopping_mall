@@ -2,7 +2,7 @@ require 'rails/generators/base'
 
 module ShoppingMall
   module Generators
-    class InitializerGenerator < Rails::Generators::Base
+    class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path('../../templates', __FILE__)
 
       desc 'Creates initializer and inserts middleware'
@@ -14,10 +14,12 @@ module ShoppingMall
       def copy_middleware
         application do
           <<-STR
-            config.middleware.insert_before(
-              'ActiveRecord::ConnectionAdapters::ConnectionManagement',
-              'ShoppingMall::Escalator'
-            )
+
+    # Inserted with shopping_mall:install
+    config.middleware.insert_before(
+      'ActiveRecord::ConnectionAdapters::ConnectionManagement',
+      'ShoppingMall::Escalator'
+    )
           STR
         end
       end
