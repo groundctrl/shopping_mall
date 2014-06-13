@@ -30,10 +30,9 @@ The following config options should be set up in the `shopping_mall.rb` initiali
 
     config/initializers/shopping_mall.rb
     
+#### Escalators
 
-### Escalators
-
-Escalators are thinly wrapped Apartment::Elevators, currently the available escalators 
+Escalators are thinly wrapped Apartment::Elevators, the current escalators available are: `Subdomain`, `Domain`, and `FirstSubdomain`
 
 #### Excluding Models
 
