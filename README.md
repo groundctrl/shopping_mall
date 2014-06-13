@@ -1,4 +1,4 @@
-# ApartmentSpree
+# Shopping Mall
 
 Multi-tenancy for Spree 2.3+ using Apartment!
 
@@ -14,7 +14,7 @@ And then execute:
     
 Add an initializer with:
 
-    ApartmentSpree.configure do |config|
+    ShoppingMall.configure do |config|
       config.elevator = 'Subdomain'
     end
 
@@ -22,7 +22,7 @@ Add this to application.rb:
 
     config.middleware.insert_before(
       'ActiveRecord::ConnectionAdapters::ConnectionManagement',
-      'ApartmentSpree::ElevatorDelegator'
+      'ShoppingMall::Escalator'
     )
 
 ...
