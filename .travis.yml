@@ -1,4 +1,3 @@
-bundler_args: --without development production
 before_script:
   - "bundle exec rake test_app"
 script:
