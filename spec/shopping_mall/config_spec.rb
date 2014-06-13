@@ -8,7 +8,7 @@ describe ShoppingMall do
       )
     end
 
-    it 'exlcuded_models is a pass-through to Apartment' do
+    it 'excluded_models is a pass-through to Apartment' do
       exclusions = ['Spree::User']
       ShoppingMall.configure { |config| config.excluded_models = exclusions }
       expect(Apartment.excluded_models).to eq exclusions
