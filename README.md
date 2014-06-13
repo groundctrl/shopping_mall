@@ -23,7 +23,7 @@ Add this line to your Spree application's Gemfile:
 #### Generators
 Run the bundle command to install it
 
-After you install ShoppingMall you'll need to run the generator:
+After installing ShoppingMall you'll need to run the generator:
 
     rails generate shopping_mall:install
 
