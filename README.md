@@ -6,7 +6,7 @@ Multi-tenancy for Spree 2.3+ using Apartment!
 
 Add this line to your application's Gemfile:
 
-    gem 'apartment_spree'
+    gem 'shopping_mall'
 
 And then execute:
 
