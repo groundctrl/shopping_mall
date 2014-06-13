@@ -13,6 +13,7 @@ module ApartmentSpree
     'Spree::Country',
     'Spree::Property',
     'Spree::Prototype',
+    'Spree::Role',
     'Spree::State',
     'Spree::TaxRate',
     'Spree::Tracker',
@@ -24,7 +25,6 @@ module ApartmentSpree
   ELEVATORS = %w(Domain FirstSubdomain Subdomain)
 
   def self.configure
-    puts "Configuring ApartmentSpree"
     yield self if block_given?
   end
 
