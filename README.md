@@ -10,11 +10,22 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    $ bundle install
+    
+Add an initializer with:
 
-Or install it yourself as:
+    ApartmentSpree.configure do |config|
+      config.elevator = 'Subdomain'
+    end
 
-    $ gem install apartment_spree
+Add this to application.rb:
+
+    config.middleware.insert_before(
+      'ActiveRecord::ConnectionAdapters::ConnectionManagement',
+      'ApartmentSpree::ElevatorDelegator'
+    )
+
+...
 
 ## Testing
 
