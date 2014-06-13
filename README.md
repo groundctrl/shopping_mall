@@ -2,6 +2,7 @@
 
 Multi-tenancy for Spree 2.3+ using Apartment! This is very alpha so, as always pull requests are welcome.
 
+[![Build Status](https://travis-ci.org/groundctrl/shopping_mall.svg?branch=master)](https://travis-ci.org/groundctrl/shopping_mall)
 [![Code Climate](https://codeclimate.com/github/groundctrl/shopping_mall.png)](https://codeclimate.com/github/groundctrl/shopping_mall)
 
 ## Installation
