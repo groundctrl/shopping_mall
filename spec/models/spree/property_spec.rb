@@ -14,7 +14,7 @@ describe Spree::Property do
 
   context '#find_all_by_prototype' do
     it 'returns all found properties' do
-      properties ||= (1..5).map { create(:property) }
+      properties = (1..5).map { create(:property) }
       prototype = create :prototype, properties: properties
 
       expect(Spree::Property.find_all_by_prototype(prototype)).to eq properties
