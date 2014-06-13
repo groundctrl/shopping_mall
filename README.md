@@ -31,6 +31,10 @@ The following config options should be set up in the `shopping_mall.rb` initiali
     config/initializers/shopping_mall.rb
     
 
+### Escalators
+
+Escalators are thinly wrapped Apartment::Elevators, currently the available escalators 
+
 #### Excluding Models
 
 If you have some models that should always access the 'public' tenant, you can specify this by configuring Apartment using `ShoppingMall.configure`.  This will yield a config object for you.  You can set excluded models like so:
