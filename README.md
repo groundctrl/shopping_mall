@@ -14,6 +14,51 @@ After you install ShoppingMall you'll need to run the generator:
 
     rails generate shopping_mall:install
 
+Install adds a `shopping_mall.rb` initializer to your app, and adds the following to your `application.rb`:
+
+```ruby
+config.middleware.insert_before(
+  'ActiveRecord::ConnectionAdapters::ConnectionManagement',
+  'ShoppingMall::Escalator'
+)
+```
+See https://github.com/influitive/apartment/issues/134 for more information on this insert_before hack.
+
+## Config
+
+The following config options should be set up in the `shopping_mall.rb` initializer in your apps config:
+
+    config/initializers/shopping_mall.rb
+    
+
+#### Excluding Models
+
+If you have some models that should always access the 'public' tenant, you can specify this by configuring Apartment using `ShoppingMall.configure`.  This will yield a config object for you.  You can set excluded models like so:
+
+```ruby
+config.excluded_models = ["Spree::User", ...] # these models will not be multi-tenanted, but remain in the global (public) namespace
+```
+
+Out of the box ShoppingMall has the following Spree models excluded
+
+```ruby
+[
+  'Spree::Country',
+  'Spree::Property',
+  'Spree::Prototype',
+  'Spree::Role',
+  'Spree::State',
+  'Spree::TaxRate',
+  'Spree::Tracker',
+  'Spree::User',
+  'Spree::Zone',
+  'Spree::ZoneMember'
+]
+```
+
+> NOTE: Rails will always access the 'public' tenant when accessing these models,  but note that tables will be created in all schemas.  This may not be ideal, but its done this way because otherwise rails wouldn't be able to properly generate the schema.rb file.
+
+
 ## Testing
 
 Generate a dummy application
