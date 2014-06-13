@@ -1,12 +1,12 @@
 # Shopping Mall
 
-Multi-tenancy for Spree 2.3+ using Apartment!
+Multi-tenancy for Spree 2.3+ using Apartment! This is very alpha so, as always pull requests are welcome.
 
 ## Installation
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'shopping_mall'
+    gem 'shopping_mall' # Soon.
 
 Run the bundle command to install it
 
