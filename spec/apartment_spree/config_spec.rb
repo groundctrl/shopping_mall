@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ApartmentSpree do
   context '#configure' do
-    it 'Apartment has DEFAULT_SPREE_EXCLUSIONS' do
+    it 'Apartment has DEFAULT_SPREE_EXCLUSIONS on initialize' do
       expect(Apartment.excluded_models).to(
         eq(ApartmentSpree::DEFAULT_SPREE_EXCLUSIONS)
       )
@@ -14,16 +14,11 @@ describe ApartmentSpree do
       expect(Apartment.excluded_models).to eq exclusions
     end
 
-    it 'overrides gem exclusions with user exclusions' do
-      ApartmentSpree.configure { |config| config.excluded_models = [] }
-      expect(Apartment.excluded_models).to_not include 'Spree::User'
-    end
-
     it 'has a default elevator' do
       expect(ApartmentSpree.elevator).to eq 'Subdomain'
     end
 
-    it '#elevator_class returns a Apartment::Elevators::Elevator' do
+    it 'calling #elevator_class returns Subdomain elevator as default' do
       expect(ApartmentSpree.elevator_class).to eq Apartment::Elevators::Subdomain
     end
 
