@@ -1,12 +1,12 @@
 # Shopping Mall
 
-Multi-tenancy for Spree 2.3+ using Apartment!
+Multi-tenancy for Spree 2.3+ using Apartment! This is very alpha so, as always pull requests are welcome.
 
 ## Installation
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'shopping_mall'
+    gem 'shopping_mall' # Soon.
 
 Run the bundle command to install it
 
@@ -30,10 +30,9 @@ The following config options should be set up in the `shopping_mall.rb` initiali
 
     config/initializers/shopping_mall.rb
     
+#### Escalators
 
-### Escalators
-
-Escalators are thinly wrapped Apartment::Elevators, currently the available escalators 
+Escalators are thinly wrapped Apartment::Elevators, the current escalators available are: `Subdomain`, `Domain`, and `FirstSubdomain`
 
 #### Excluding Models
 
