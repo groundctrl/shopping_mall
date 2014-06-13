@@ -10,7 +10,7 @@ task :default => [:spec]
 
 desc 'Generates a dummy app for testing'
 task :test_app do
-  ENV['LIB_NAME'] = 'apartment_spree'
+  ENV['LIB_NAME'] = 'shopping_mall'
   ENV['DB'] = 'postgres'
   Rake::Task['common:test_app'].invoke 'Spree::User'
 end

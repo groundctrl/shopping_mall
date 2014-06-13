@@ -1,18 +1,18 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'apartment_spree/version'
+require 'shopping_mall/version'
 
 Gem::Specification.new do |spec|
   spec.platform      = Gem::Platform::RUBY
-  spec.name          = "apartment_spree"
-  spec.version       = ApartmentSpree::VERSION
-  spec.authors       = ["Vincent Franco", "David Freerksen"]
-  spec.summary       = "Multi-tenancy for Spree >= 2.3"
+  spec.name          = 'shopping_mall'
+  spec.version       = ShoppingMall::VERSION
+  spec.authors       = ['Vincent Franco', 'David Freerksen']
+  spec.summary       = 'Multi-tenancy for Spree >= 2.3'
   spec.description   = spec.summary
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.homepage     = "http://groundctrl.com"
+  spec.homepage     = 'http://github.com/groundctrl/shopping_mall'
   spec.files        = `git ls-files`.split("\n")
   spec.test_files   = `git ls-files -- spec/*`.split("\n")
   spec.require_path = 'lib'

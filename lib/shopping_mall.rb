@@ -3,11 +3,11 @@ require 'apartment'
 require 'apartment/elevators/domain'
 require 'apartment/elevators/first_subdomain'
 require 'apartment/elevators/subdomain'
-require 'apartment_spree/version'
-require 'apartment_spree/engine'
-require 'apartment_spree/elevator_delegator'
+require 'shopping_mall/version'
+require 'shopping_mall/engine'
+require 'shopping_mall/escalator'
 
-module ApartmentSpree
+module ShoppingMall
 
   DEFAULT_SPREE_EXCLUSIONS = [
     'Spree::Country',
@@ -22,7 +22,7 @@ module ApartmentSpree
     'Spree::ZoneMember'
   ]
 
-  ELEVATORS = %w(Domain FirstSubdomain Subdomain)
+  ESCALATORS = %w(Domain FirstSubdomain Subdomain)
 
   def self.configure
     yield self if block_given?
@@ -36,15 +36,15 @@ module ApartmentSpree
     Apartment.configure { |config| config.excluded_models = models }
   end
 
-  def self.elevator
-    @elevator ||= 'Subdomain'
+  def self.escalator
+    @escalator ||= 'Subdomain'
   end
 
-  def self.elevator=(elevator)
-    @elevator = elevator
+  def self.escalator=(escalator)
+    @escalator = escalator
   end
 
-  def self.elevator_class
-    "Apartment::Elevators::#{elevator}".constantize
+  def self.escalator_class
+    "Apartment::Elevators::#{escalator}".constantize
   end
 end
