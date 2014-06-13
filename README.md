@@ -4,28 +4,15 @@ Multi-tenancy for Spree 2.3+ using Apartment!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your Spree application's Gemfile:
 
     gem 'shopping_mall'
 
-And then execute:
+Run the bundle command to install it
 
-    $ bundle install
-    
-Add an initializer with:
+After you install ShoppingMall you'll need to run the generator:
 
-    ShoppingMall.configure do |config|
-      config.elevator = 'Subdomain'
-    end
-
-Add this to application.rb:
-
-    config.middleware.insert_before(
-      'ActiveRecord::ConnectionAdapters::ConnectionManagement',
-      'ShoppingMall::Escalator'
-    )
-
-...
+    rails generate shopping_mall:install
 
 ## Testing
 
