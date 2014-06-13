@@ -6,7 +6,7 @@ feature 'Tenancy', js: true do
       visit 'http://tenant-name.example.dev:3000'
     end
 
-    xscenario 'homepage' do
+    scenario 'homepage' do
       expect(page).to have_text 'welcome'
     end
   end
