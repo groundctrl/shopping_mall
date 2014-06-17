@@ -22,9 +22,9 @@ describe Spree::Zone do
     before { country_zone.members.create(zoneable: country) }
 
     context 'when there is only one qualifying zone' do
-      let(:address) { create(:address,
-                             country: country,
-                             state: country.states.first) }
+      let(:address) do
+        create(:address, country: country, state: country.states.first)
+      end
 
       it 'should return the qualifying zone' do
         Spree::Zone.match(address).should == country_zone
@@ -32,9 +32,9 @@ describe Spree::Zone do
     end
 
     context 'when there are two qualified zones with same member type' do
-      let(:address) { create(:address,
-                             country: country,
-                             state: country.states.first) }
+      let(:address) do
+        create(:address, country: country, state: country.states.first)
+      end
       let(:second_zone) { create(:zone, name: 'SecondZone') }
 
       before { second_zone.members.create(zoneable: country) }
@@ -58,9 +58,9 @@ describe Spree::Zone do
 
     context 'when there are two qualified zones with different member types' do
       let(:state_zone) { create(:zone, name: 'StateZone') }
-      let(:address) { create(:address,
-                             country: country,
-                             state: country.states.first) }
+      let(:address) do
+        create(:address, country: country, state: country.states.first)
+      end
 
       before { state_zone.members.create(zoneable: country.states.first) }
 
