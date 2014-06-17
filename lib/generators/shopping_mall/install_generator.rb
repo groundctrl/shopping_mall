@@ -29,12 +29,12 @@ module ShoppingMall
       end
 
       def run_migrations
-       res = ask 'Would you like to run the migrations now? [Y/n]'
-       if ['', 'y'].include?(res.downcase)
-         run 'bundle exec rake db:migrate'
-       else
-         puts 'Skipping rake db:migrate, don\'t forget to run it!'
-       end
+        res = ask 'Would you like to run the migrations now? [Y/n]'
+        if ['', 'y'].include?(res.downcase)
+          run 'bundle exec rake db:migrate'
+        else
+          logger 'Skipping rake db:migrate, don\'t forget to run it!'
+        end
       end
     end
   end
