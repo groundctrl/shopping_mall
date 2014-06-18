@@ -16,5 +16,5 @@ ShoppingMall.configure do |config|
   #  ]
   #
   #  Feel free to exclude what you want!
-  #config.exluded_models = ['Some::AwesomeModel']
+  #config.excluded_models = ['Some::AwesomeModel']
 end
