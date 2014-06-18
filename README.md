@@ -1,19 +1,29 @@
 # Shopping Mall
 
-Multi-tenancy for Spree 2.3+ using Apartment! This is very alpha so, as always pull requests are welcome.
+Multi-tenancy for Spree 2.3+ using Apartment! This is very alpha. Pull requests are welcomed.
 
 [![Build Status](https://travis-ci.org/groundctrl/shopping_mall.svg?branch=master)](https://travis-ci.org/groundctrl/shopping_mall)
 [![Code Climate](https://codeclimate.com/github/groundctrl/shopping_mall.png)](https://codeclimate.com/github/groundctrl/shopping_mall)
 
 ## Installation
 
+#### Bleeding edge
 Add this line to your Spree application's Gemfile:
+
+    gem 'spree', github: 'groundctrl/shopping_mall'
+    
+
+#### Gem (Not ready yet.)
+Add this line to your Spree application's Gemfile:
+> NOTE: Gem is yet to be released (Spree 2.3 isn't out yet.)
 
     gem 'shopping_mall' # Soon.
 
+
+#### Generators
 Run the bundle command to install it
 
-After you install ShoppingMall you'll need to run the generator:
+After installing ShoppingMall you'll need to run the generator:
 
     rails generate shopping_mall:install
 
