@@ -1,8 +1,8 @@
-require 'rails/generators/base'
-
 module ShoppingMall
   module Generators
     class InstallGenerator < Rails::Generators::Base
+      class_option :auto_run_migrations, type: :boolean, default: true
+
       source_root File.expand_path('../../templates', __FILE__)
 
       desc 'Creates initializer and inserts middleware'
@@ -29,8 +29,7 @@ module ShoppingMall
       end
 
       def run_migrations
-        res = ask 'Would you like to run the migrations now? [Y/n]'
-        if ['', 'y'].include?(res.downcase)
+        if agree 'Would you like to run the migrations now? [Y/n]'
           run 'bundle exec rake db:migrate'
         else
           logger 'Skipping rake db:migrate, don\'t forget to run it!'
