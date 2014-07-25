@@ -1,5 +1,3 @@
-require 'highline/import'
-
 namespace :tenant do
   desc 'Create a new tenant.'
   task :create, [:tenant] => [:environment] do |t, args|
