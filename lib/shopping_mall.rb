@@ -3,17 +3,16 @@ require 'apartment'
 require 'apartment/elevators/domain'
 require 'apartment/elevators/first_subdomain'
 require 'apartment/elevators/subdomain'
-require 'shopping_mall/version'
 require 'shopping_mall/engine'
 require 'shopping_mall/escalator'
 
 module ShoppingMall
-
   DEFAULT_SPREE_EXCLUSIONS = [
     'Spree::Country',
     'Spree::Property',
     'Spree::Prototype',
     'Spree::Role',
+    'Spree::RolesUser',
     'Spree::State',
     'Spree::TaxRate',
     'Spree::Tracker',

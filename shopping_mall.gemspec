@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'shopping_mall/version'
@@ -8,20 +7,24 @@ Gem::Specification.new do |spec|
   spec.name          = 'shopping_mall'
   spec.version       = ShoppingMall::VERSION
   spec.authors       = ['Vincent Franco', 'David Freerksen']
+  spec.homepage      = 'http://github.com/groundctrl/shopping_mall'
   spec.summary       = 'Multi-tenancy for Spree >= 2.3'
-  spec.license       = 'MIT'
   spec.description   = spec.summary
+  spec.license       = 'MIT'
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.homepage     = 'http://github.com/groundctrl/shopping_mall'
-  spec.files        = `git ls-files`.split("\n")
+  spec.files       = Dir['{app,config,db,lib}/**/*',
+                        'MIT-LICENSE',
+                        'Rakefile',
+                        'README.md']
   spec.test_files   = `git ls-files -- spec/*`.split("\n")
   spec.require_path = 'lib'
   spec.has_rdoc     = false
-  spec.requirements  << 'none'
+  spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.3.0.beta'
-  spec.add_dependency 'apartment', '~> 0.24'
+  spec.add_dependency 'spree_core', '~> 2.3.0'
+  spec.add_dependency 'apartment', '~> 0.25'
+
   spec.add_development_dependency 'ffaker', '~> 1.16'
   spec.add_development_dependency 'capybara', '~> 2.2'
   spec.add_development_dependency 'database_cleaner', '1.2'
@@ -35,6 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-rspec', '~> 4.2'
   spec.add_development_dependency 'pry', '~> 0.9'
   spec.add_development_dependency 'pg', '~> 0.11'
-  spec.add_development_dependency 'debugger', '~> 1.6'
   spec.add_development_dependency 'shoulda-matchers', '~> 2.5'
 end

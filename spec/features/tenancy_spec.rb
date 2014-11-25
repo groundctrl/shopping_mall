@@ -8,6 +8,7 @@ feature 'Tenancy', js: true do
 
     xscenario 'homepage' do
       expect(page).to have_text 'welcome'
+      expect(response).to have_http_status(:ok)
     end
   end
 end
