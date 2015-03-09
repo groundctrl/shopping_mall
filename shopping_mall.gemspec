@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = ShoppingMall::VERSION
   spec.authors       = ['Vincent Franco', 'David Freerksen']
   spec.homepage      = 'http://github.com/groundctrl/shopping_mall'
-  spec.summary       = 'Multi-tenancy for Spree >= 2.3'
+  spec.summary       = 'Multi-tenancy for Spree 2.4.x'
   spec.description   = spec.summary
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 1.9.3'
@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   spec.has_rdoc     = false
   spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.3.0'
   spec.add_dependency 'apartment', '~> 0.25'
+  spec.add_dependency 'spree', '~> 2.4.0'
 
   spec.add_development_dependency 'ffaker', '~> 1.16'
   spec.add_development_dependency 'capybara', '~> 2.2'

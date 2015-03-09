@@ -1,6 +1,6 @@
 # Shopping Mall
 
-Multi-tenancy for Spree 2.3+ using the [Apartment](https://github.com/influitive/apartment) gem and [Postgres](http://www.postgresql.org/) as the database. This is very alpha. Pull requests are welcomed.
+Multi-tenancy for Spree 2.4.x using the [Apartment](https://github.com/influitive/apartment) gem and [Postgres](http://www.postgresql.org/) as the database. This is very alpha. Pull requests are welcomed.
 
 [![Build Status](https://travis-ci.org/groundctrl/shopping_mall.svg?branch=master)](https://travis-ci.org/groundctrl/shopping_mall)
 [![Code Climate](https://codeclimate.com/github/groundctrl/shopping_mall.png)](https://codeclimate.com/github/groundctrl/shopping_mall)
@@ -8,28 +8,11 @@ Multi-tenancy for Spree 2.3+ using the [Apartment](https://github.com/influitive
 
 ## Installation
 
-#### Gem
-
 Add this line to your Spree application's Gemfile:
 
     gem 'shopping_mall'
 
-#### Stable
-
-Add this line to your Spree application's Gemfile:
-
-    gem 'shopping_mall', github: 'groundctrl/shopping_mall', branch: '2-3-stable'
-
-#### Bleeding edge
-Add this line to your Spree application's Gemfile:
-
-    gem 'shopping_mall', github: 'groundctrl/shopping_mall'
-
-> NOTE: The master branch is not guaranteed to be in a fully functioning state. It is unwise to use this branch in a production environment.
-
-#### Bundle
-
-Run the bundle command to install it:
+Then run the bundle command to install it:
 
     bundle install
 
