@@ -1,6 +1,6 @@
 # Shopping Mall
 
-Multi-tenancy for Spree 2.4.x using the [Apartment](https://github.com/influitive/apartment) gem and [Postgres](http://www.postgresql.org/) as the database. This is very alpha. Pull requests are welcomed.
+Multi-tenancy for Spree 3.0.x using the [Apartment](https://github.com/influitive/apartment) gem and [Postgres](http://www.postgresql.org/) as the database.
 
 [![Build Status](https://travis-ci.org/groundctrl/shopping_mall.svg?branch=master)](https://travis-ci.org/groundctrl/shopping_mall)
 [![Code Climate](https://codeclimate.com/github/groundctrl/shopping_mall.png)](https://codeclimate.com/github/groundctrl/shopping_mall)

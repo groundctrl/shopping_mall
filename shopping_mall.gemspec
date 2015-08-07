@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = ShoppingMall::VERSION
   spec.authors       = ['Vincent Franco', 'David Freerksen']
   spec.homepage      = 'http://github.com/groundctrl/shopping_mall'
-  spec.summary       = 'Multi-tenancy for Spree 2.4.x'
+  spec.summary       = 'Multi-tenancy for Spree 3.x.x'
   spec.description   = spec.summary
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.1.0'
 
   spec.files       = Dir['{app,config,db,lib}/**/*',
                         'MIT-LICENSE',
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.requirements << 'none'
 
   spec.add_dependency 'apartment', '~> 0.25'
-  spec.add_dependency 'spree', '~> 2.4.0'
+  spec.add_dependency 'spree', '~> 3.0.3'
 
   spec.add_development_dependency 'ffaker', '~> 1.16'
   spec.add_development_dependency 'capybara', '~> 2.2'
@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coffee-rails', '~> 4.0'
   spec.add_development_dependency 'sass-rails', '~> 4.0'
   spec.add_development_dependency 'guard-rspec', '~> 4.2'
-  spec.add_development_dependency 'pry', '~> 0.9'
+  spec.add_development_dependency 'pry-byebug', '~> 3.2'
   spec.add_development_dependency 'pg', '~> 0.11'
   spec.add_development_dependency 'shoulda-matchers', '~> 2.5'
 end

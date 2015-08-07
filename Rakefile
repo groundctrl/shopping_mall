@@ -2,7 +2,7 @@ require 'bundler'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
-require 'spree/testing_support/common_rake'
+require 'spree/testing_support/extension_rake'
 
 RSpec::Core::RakeTask.new
 
@@ -12,5 +12,5 @@ desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'shopping_mall'
   ENV['DB'] = 'postgres'
-  Rake::Task['common:test_app'].invoke 'Spree::User'
+  Rake::Task["extension:test_app"].invoke
 end
