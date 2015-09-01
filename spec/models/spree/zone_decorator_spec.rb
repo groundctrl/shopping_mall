@@ -10,13 +10,10 @@ describe Spree::Zone do
     end
   end
 
-  context '#match' do
+  describe '#match' do
     let(:country_zone) { create(:zone, name: 'CountryZone') }
     let(:country) do
-      country = create(:country)
-      # Create at least one state for this country
-      state = create(:state, country: country)
-      country
+      create(:country, states: [create(:state)])
     end
 
     before { country_zone.members.create(zoneable: country) }

@@ -15,12 +15,13 @@ namespace :tenant do
       raise "Tenant `#{tenant}` already exists. Will not overwrite."
     end
 
-    Apartment::Tenant.create(tenant)
+    Spree::ClientStore.create name: tenant
+    Apartment::Tenant.create tenant
 
-    puts 'Tenant created successfully'
+    puts 'Store created successfully'
     ENV['RAILS_CACHE_ID'] = tenant
 
-    Apartment::Tenant.process(tenant) do
+    Apartment::Tenant.switch(tenant) do
       # Hack the current method so we're able to return a gateway
       # without a RAILS_ENV
       Spree::Gateway.class_eval do
@@ -28,6 +29,8 @@ namespace :tenant do
           Spree::Gateway::Bogus.new
         end
       end
+
+      Rake::Task['db:seed'].invoke
     end
   end
 
@@ -56,10 +59,10 @@ namespace :tenant do
 
   # Check is schema is currently in use
   def schema_in_use?(tenant)
-    schema = ActiveRecord::Base.connection
-                               .execute("SELECT schema_name
-                                         FROM information_schema.schemata
-                                         WHERE schema_name = '#{tenant}'")
+    schema = ActiveRecord::Base.connection.
+      execute("SELECT schema_name
+               FROM information_schema.schemata
+               WHERE schema_name = '#{tenant}'")
     schema.ntuples > 0
   end
 end

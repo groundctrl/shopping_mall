@@ -3,10 +3,6 @@ require 'spec_helper'
 describe Spree::User do
   it { should have_many(:roles).through(:roles_users) }
 
-  it 'is on default_schema' do
-    expect(Spree::User.table_name).to eq 'public.spree_users'
-  end
-
   context 'has_many through sanity check' do
     it 'associates correctly' do
       user = create :user, roles: [create(:role)]
