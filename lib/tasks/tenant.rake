@@ -47,7 +47,10 @@ namespace :tenant do
          data in the future unless backups are available. Are you sure you
          wish to continue? [Y/n]', true)
       begin
-        Apartment::Tenant.drop(args.tenant)
+        spree_tenant = Spree::Tenant.find_by name: tenant
+        spree_tenant.destroy if spree_tenant
+
+        Apartment::Tenant.drop(tenant)
         puts "Tenant `#{tenant}` has been dropped. It is no longer available."
       rescue => err
         raise err
