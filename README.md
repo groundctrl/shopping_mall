@@ -22,29 +22,24 @@ After installing ShoppingMall, run the generator:
 
     rails generate shopping_mall:install
 
-This will adds a `shopping_mall.rb` initializer to your app, and adds the following to your `application.rb`:
+This will adds a `shopping_mall.rb` initializer to your app, and adds the following to your production and development environment:
 
 ```ruby
-config.middleware.insert_before(
-  'ActiveRecord::ConnectionAdapters::ConnectionManagement',
-  'ShoppingMall::Escalator'
-)
+Rails.application.configure do |config|
+  ...
+  'config.cache_store = :memory_store, { namespace: -> { ShoppingMall::Store.current } }'
+  ...
+end
 ```
 
 > See [https://github.com/influitive/apartment/issues/134](https://github.com/influitive/apartment/issues/134) for more information on this insert_before hack.
 
 
-## Config
+## Configuration
 
-The following config options should be set up in the `shopping_mall.rb` initializer:
+Some sane defaults have been added for auto tracking of Tenants for migrations and seeds. `ShoppingMall.configure` is just a pass-thru so anything that is available to `Apartment` can be passed here
 
-#### Escalators
-
-Escalators are thinly wrapped Apartment::Elevators, the current escalators available are: `Subdomain`, `Domain`, and `FirstSubdomain`. The default escalator is `Subdomain`.
-
-```ruby
-config.escalator = 'Subdomain'
-```
+Check here: https://github.com/influitive/apartment for configuration options
 
 #### Excluding Models
 
@@ -54,30 +49,14 @@ If you have some models that should always access the `public` (global) tenant, 
 config.excluded_models = ["Spree::User", ...] # these models will not be multi-tenanted, but remain in the global (public) namespace
 ```
 
-Out of the box ShoppingMall has the following Spree models excluded:
+Out of the box ShoppingMall has the following Spree model excluded: `Spree::Tenant`
 
-```ruby
-[
-  'Spree::Country',
-  'Spree::Property',
-  'Spree::Prototype',
-  'Spree::Role',
-  'Spree::RolesUser',
-  'Spree::State',
-  'Spree::TaxRate',
-  'Spree::Tracker',
-  'Spree::User',
-  'Spree::Zone',
-  'Spree::ZoneMember'
-]
-```
-
-> NOTE: Rails will always access the `public` tenant when accessing these models, but note that tables will be created in all schemas. This may not be ideal, but its done this way because otherwise rails wouldn't be able to properly generate the `schema.rb` file.
+> NOTE: Rails will always access the `public` tenant when accessing excluded models, but note that tables will be created in all schemas. This may not be ideal, but its done this way because otherwise rails wouldn't be able to properly generate the `schema.rb` file.
 
 
 ## Create Tenant (Rake Task)
 
-The tenant name will change depending on the escalator you are using. See the [Escalators](#escalators) section for more information.
+The tenant name will change depending on the elevator you are using. See the [Apartment Elevators](https://github.com/influitive/apartment#switching-tenants-per-request) section for more information.
 
     rake tenant:create['tenant_name_here']
 
@@ -85,7 +64,7 @@ If the tenant already exists, it will *not* be overwritten. It will need to be *
 
 #### Subdomain
 
-This escalator will use the entire subdomain, including nested subdomains. If your domain is `foo.example.com`, the rake task you would need to run is:
+This elevator will use the entire subdomain, including nested subdomains. If your domain is `foo.example.com`, the rake task you would need to run is:
 
     rake tenant:create['foo']
 
