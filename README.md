@@ -32,9 +32,6 @@ Rails.application.configure do |config|
 end
 ```
 
-> See [https://github.com/influitive/apartment/issues/134](https://github.com/influitive/apartment/issues/134) for more information on this insert_before hack.
-
-
 ## Configuration
 
 Some sane defaults have been added for auto tracking of Tenants for migrations and seeds. `ShoppingMall.configure` is just a pass-thru so anything that is available to `Apartment` can be passed here
