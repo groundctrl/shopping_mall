@@ -15,7 +15,7 @@ namespace :tenant do
       raise "Tenant `#{tenant}` already exists. Will not overwrite."
     end
 
-    Spree::ClientStore.create name: tenant
+    Spree::Tenant.create name: tenant
     Apartment::Tenant.create tenant
 
     puts 'Store created successfully'
